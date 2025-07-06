@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/src/styles/reset.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Hero Game</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="character-selection">
+            <label for="character-combo">Escolha seu personagem:</label>
+            <select id="character-combo">
+                <option value="ninja">Ninja</option>
+                <option value="guerreiro">Guerreiro</option>
+                <option value="mago">Mago</option>
+            </select>
+            <button id="start-game-button">Criar e Iniciar Jogo</button>
+        </div>
+
+        <div class="game-frame">
+            <div class="monster">
+               <img class="monster"  id="monster" src="./src/assets/img/monster.png" alt="Monster"> 
+            </div>
+            <button class="attack-button" id="attack-button">Atacar</button>
+            <div class="hero" id="hero">
+              <img class="hero" src="" alt="Hero">  
+            </div>
+        </div>
+        <div>
+            <h2 id="action"></h2>
+        </div>
+    </div>
+
+   <script type="module" defer src="./src/scripts/engine.js"></script>      
+</body>
+</html>
