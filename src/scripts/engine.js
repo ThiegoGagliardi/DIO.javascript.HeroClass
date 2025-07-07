@@ -34,7 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (state.view.heroSelected.value === 'mago' ){
             state.value.hero =  new heros.Magician();            
             state.view.heroimg.src =  state.value.hero.url;
-        }         
+        }
+        if (state.view.heroSelected.value === 'monge' ){
+            state.value.hero =  new heros.Monk();            
+            state.view.heroimg.src =  state.value.hero.url;
+        }
+        
+        state.view.attack.style.display  = "";
+        state.view.start.style.display  = "none";
     }
 
     async function Attack(){
@@ -70,15 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (state.value.hero.life <= 0){
 
-          state.view.action.textContent = `Você Perdeu.`;
-          state.view.heroimg.src = "";          
+          state.view.action.textContent = `${state.value.hero.name} Perdeu.`;
+          state.view.heroimg.src = "";
+          state.view.attack.style.display  = "none";
           return;
       }
         
       if (state.value.monster.life <= 0){
 
-          state.view.action.textContent = `Você Ganhou.`;
-          state.view.monsterimg.src = "";
+          state.view.action.textContent = `${state.value.hero.name} Ganhou.`;
+          state.view.monsterimg.src = state.value.monster.urlDead;
+          state.view.attack.style.display  = "none";
           return;
       } 
 
@@ -90,4 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     state.view.start.addEventListener('click',CreateHero);
     state.view.attack.addEventListener('click',Attack);
+    state.view.attack.style.display  = "none";
+    state.view.start.style.display  = "";
 });

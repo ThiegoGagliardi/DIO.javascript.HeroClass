@@ -5,6 +5,8 @@ export class Monster {
       this.life = 30;
       this.damage= 5;
       this.attackType = "Stratch";
+      this.url = "./src/assets/img/monster.png";
+      this.urlDead = "./src/assets/img/monster_dead.png";      
     } 
 
     Attack(){
