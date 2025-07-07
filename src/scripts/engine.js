@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         state.view.attack.style.display  = "";
         state.view.start.style.display  = "none";
+        state.view.heroSelected.disabled = true;
     }
 
     async function Attack(){
@@ -51,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const heroRandom = Math.random();
 
-      const hitThreshold = 0.5;
+      const hitThreshold = state.value.hero.accuracy;
 
-      if (heroRandom > hitThreshold) {
+      if (heroRandom >= hitThreshold) {
         
         state.value.monster.ReciveDamage(state.value.hero.damage);
         state.view.action.textContent = state.value.hero.Attack();    
@@ -65,8 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
 
       const monsterRandom = Math.random();
+      const monsterHitThreshold = 0.5;
 
-      if (monsterRandom > hitThreshold) {
+      if (monsterRandom > monsterHitThreshold) {
         
         state.value.hero.ReciveDamage(state.value.monster.damage);
         state.view.action.textContent = state.value.monster.Attack();    
